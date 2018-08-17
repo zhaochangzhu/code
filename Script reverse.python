@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import linecache
+import logging
+
+def dao_line(path_name):
+    file_input = open(path_name,'r',encoding='utf-8')
+    count = len(file_input.readlines())
+    logging.basicConfig(level=logging.DEBUG,filename=path_name+'.log',filemode='a')
+    total = count
+    print(count)
+    print("starting----------------------------------------------------")
+    while(count != 0):
+        counts_data = linecache.getline(path_name,count)
+        count = count-1
+        #print(counts_data)
+        logging.info(counts_data)
+
+    file_input.close()
+    print("Success to finish-----------------------------")
+
+if __name__ == '__main__':
+    dao_line("file\\8.15-16ace-linux-secure.txt")
+    
+
+
+
+
+
